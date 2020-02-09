@@ -4,5 +4,16 @@
         <file>Login.qml</file>
         <file>TimeSetting.qml</file>
         <file>Setting.qml</file>
+        <file>SplashScreen.qml</file>
+        <file>StandardRun.qml</file>
+        <file>backend.cpp</file>
+        <file>backend.h</file>
+        <file>general.h</file>
+        <file>main.cpp</file>
+        <file>serialport.cpp</file>
+        <file>serialport.h</file>
+        <file>standard.h</file>
+        <file>images/logo.png</file>
+        <file>images/setting.png</file>
     </qresource>
 </RCC>
