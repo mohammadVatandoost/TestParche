@@ -25,7 +25,20 @@ Page {
                 height: 100
                 sourceSize.height: 100
                 sourceSize.width: 100
-                source: "images/standards.png"
+                source: "images/job.png"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                       root.StackView.view.push("qrc:/StandardsList.qml");
+                    }
+                }
+            }
+            Image {
+                width: 100
+                height: 100
+                sourceSize.height: 100
+                sourceSize.width: 100
+                source: "images/settings.png"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -38,20 +51,7 @@ Page {
                 height: 100
                 sourceSize.height: 100
                 sourceSize.width: 100
-                source: "images/setting.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       console.info("image clicked!")
-                    }
-                }
-            }
-            Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/timeSetting.png"
+                source: "images/sand-watch-96.png"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -127,6 +127,14 @@ Page {
                 font.pointSize: 20
                 font.bold: true
             }
+            Image {
+                width: 48
+                height: 48
+                sourceSize.height: 24
+                sourceSize.width: 24
+                source: "images/celsius.png"
+            }
+
         }
         // humidity
         RowLayout {
@@ -279,35 +287,66 @@ Page {
                 font.pointSize: 20
                 font.bold: true
             }
-            Button {
-                id: openBtn
-                text: qsTr("Start")
-                highlighted: true
-                Material.background: (root.programeState === 2) ? Material.Green : Material.red
-                onClicked: {
-                    root.programeState = 2;
+            Image {
+                width: 100
+                height: 100
+                sourceSize.height: 100
+                sourceSize.width: 100
+                source: "images/start.png"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                       console.info("image clicked!")
+                    }
                 }
             }
+            Image {
+                width: 100
+                height: 100
+                sourceSize.height: 100
+                sourceSize.width: 100
+                source: "images/pause-button.png"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                       console.info("image clicked!")
+                    }
+                }
+            }
+            Image {
+                width: 100
+                height: 100
+                sourceSize.height: 100
+                sourceSize.width: 100
+                source: "images/stop.png"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                       console.info("image clicked!")
+                    }
+                }
+            }
+//            Button {
+//                id: openBtn
+//                text: qsTr("Start")
+//                highlighted: true
+//                Material.background: (root.programeState === 2) ? Material.Green : Material.red
+//                onClicked: {
+//                    root.programeState = 2;
+//                }
+//            }
 
-            Button {
-                id: normalBtn
-                text: qsTr("Pause")
-                highlighted: true
-                Material.background: (root.programeState === 0) ? Material.Green : Material.red
-                onClicked: {
-                    root.programeState = 0;
-                }
-            }
+//            Button {
+//                id: normalBtn
+//                text: qsTr("Pause")
+//                highlighted: true
+//                Material.background: (root.programeState === 0) ? Material.Green : Material.red
+//                onClicked: {
+//                    root.programeState = 0;
+//                }
+//            }
 
-            Button {
-                id: closeBtn
-                text: qsTr("Stop")
-                highlighted: true
-                Material.background: (root.programeState === 1) ? Material.Green : Material.red
-                onClicked: {
-                    root.programeState = 1;
-                }
-            }
+
         }
     }
 }

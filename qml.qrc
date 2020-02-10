@@ -15,5 +15,18 @@
         <file>images/rain.png</file>
         <file>images/sun.png</file>
         <file>images/rotate.png</file>
+        <file>images/celsius.png</file>
+        <file>images/time.png</file>
+        <file>images/stop.png</file>
+        <file>images/start.png</file>
+        <file>images/settings.png</file>
+        <file>images/sand-watch-96.png</file>
+        <file>images/pause-button.png</file>
+        <file>images/job.png</file>
+        <file>StandardsList.qml</file>
+        <file>StandardInfo.qml</file>
+        <file>NewStandard.qml</file>
+        <file>images/edit-64.png</file>
+        <file>images/delete-64.png</file>
     </qresource>
 </RCC>
