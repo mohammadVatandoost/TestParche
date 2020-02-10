@@ -6,12 +6,6 @@ import QtQuick.Extras 1.4
 import QtQuick.Controls.Material 2.3
 
 Pane {
-    implicitHeight: 100
-    implicitWidth: parent.width*0.9
-    Material.elevation: 5
-    Layout.alignment: Qt.AlignHCenter
-    Layout.topMargin: 0
- RowLayout {
     id: standard
     property int idNum: 1
     property string name: "standard name"
@@ -21,14 +15,27 @@ Pane {
     property bool raining: false
     property int rainOnTime: 42
     property int rainOffTime: 54
+
+    implicitHeight: 100
+    implicitWidth: parent.width*0.9
+    Material.elevation: 5
+    Layout.alignment: Qt.AlignHCenter
+    Layout.topMargin: 0
+ColumnLayout {
+    anchors.fill: parent
+
+ RowLayout {
     width: parent.width
     Text {
         id: name
         text: qsTr(standard.idNum+"- "+standard.name)
+        font.pointSize: 20
+        font.bold: true
     }
     Text {
         id: tempurature
         text: qsTr(standard.temp+" ")
+        font.pointSize: 18
     }
     Image {
         width: 48
@@ -58,4 +65,21 @@ Pane {
         text: qsTr(standard.rainOffTime+" min")
     }
  }
+ RowLayout {
+     Image {
+         width: 48
+         height: 48
+         sourceSize.height: 24
+         sourceSize.width: 24
+         source: "images/edit-64.png"
+     }
+     Image {
+         width: 48
+         height: 48
+         sourceSize.height: 24
+         sourceSize.width: 24
+         source: "images/delete-64.png"
+     }
+ }
+}
 }

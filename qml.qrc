@@ -28,5 +28,7 @@
         <file>NewStandard.qml</file>
         <file>images/edit-64.png</file>
         <file>images/delete-64.png</file>
+        <file>NumberInput.qml</file>
+        <file>SwitchDelegate.qml</file>
     </qresource>
 </RCC>

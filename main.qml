@@ -14,7 +14,10 @@ Window {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: SplashScreen {}
+//        initialItem: SplashScreen {}
+//        initialItem: StandardsList {}
+//        initialItem: NewStandard {}
+        initialItem: Setting {}
     }
 
     InputPanel {

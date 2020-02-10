@@ -326,25 +326,9 @@ Page {
                     }
                 }
             }
-//            Button {
-//                id: openBtn
-//                text: qsTr("Start")
-//                highlighted: true
-//                Material.background: (root.programeState === 2) ? Material.Green : Material.red
-//                onClicked: {
-//                    root.programeState = 2;
-//                }
-//            }
 
-//            Button {
-//                id: normalBtn
-//                text: qsTr("Pause")
-//                highlighted: true
-//                Material.background: (root.programeState === 0) ? Material.Green : Material.red
-//                onClicked: {
-//                    root.programeState = 0;
-//                }
-//            }
+
+
 
 
         }
