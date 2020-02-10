@@ -17,7 +17,8 @@ Window {
 //        initialItem: SplashScreen {}
 //        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
-        initialItem: Setting {}
+//        initialItem: Setting {}
+        initialItem: TimeSetting {}
     }
 
     InputPanel {

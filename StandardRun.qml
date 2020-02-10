@@ -42,7 +42,7 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       console.info("image clicked!")
+                       root.StackView.view.push("qrc:/Setting.qml");
                     }
                 }
             }
