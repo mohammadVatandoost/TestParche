@@ -42,7 +42,7 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       root.StackView.view.push("qrc:/Setting.qml");
+                       root.StackView.view.push("qrc:/Login.qml");
                     }
                 }
             }
@@ -55,7 +55,7 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       console.info("image clicked!")
+                       root.StackView.view.push("qrc:/TimeSetting.qml");
                     }
                 }
             }

@@ -15,10 +15,10 @@ Window {
         id: stackView
         anchors.fill: parent
 //        initialItem: SplashScreen {}
-//        initialItem: StandardsList {}
+        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
 //        initialItem: Setting {}
-        initialItem: TimeSetting {}
+//        initialItem: TimeSetting {}
     }
 
     InputPanel {

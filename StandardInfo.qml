@@ -26,30 +26,53 @@ ColumnLayout {
 
  RowLayout {
     width: parent.width
+    spacing: 10
     Text {
         id: name
         text: qsTr(standard.idNum+"- "+standard.name)
         font.pointSize: 20
         font.bold: true
     }
-    Text {
-        id: tempurature
-        text: qsTr(standard.temp+" ")
-        font.pointSize: 18
+    // temperature
+    RowLayout {
+        Image {
+            width: 48
+            height: 48
+            sourceSize.height: 36
+            sourceSize.width: 36
+            source: "images/temp.png"
+        }
+        Text {
+            id: tempurature
+            text: qsTr(standard.temp+" ")
+            font.pointSize: 18
+        }
+        Image {
+            width: 48
+            height: 48
+            sourceSize.height: 24
+            sourceSize.width: 24
+            source: "images/celsius.png"
+        }
     }
-    Image {
-        width: 48
-        height: 48
-        sourceSize.height: 24
-        sourceSize.width: 24
-        source: "images/celsius.png"
+
+    // humidity
+    RowLayout {
+        Image {
+            width: 48
+            height: 48
+            sourceSize.height: 36
+            sourceSize.width: 36
+            source: "images/humidity.png"
+        }
+        Text {
+            text: qsTr(standard.humidity+" %")
+            font.pointSize: 18
+        }
     }
+
+
     Text {
-//                id: name
-        text: qsTr(standard.humidity+" %")
-    }
-    Text {
-//                id: name
         text: standard.mode ? qsTr("On") : qsTr("Off")
     }
     Text {

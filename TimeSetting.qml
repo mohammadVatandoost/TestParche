@@ -22,6 +22,23 @@ Page {
    property bool filter5: false
    property bool filter6: false
 
+   header: ToolBar {
+       ToolButton {
+           text: qsTr("Back")
+           anchors.left: parent.left
+           anchors.leftMargin: 10
+           anchors.verticalCenter: parent.verticalCenter
+           onClicked: root.StackView.view.pop()
+       }
+
+       Label {
+           id: pageTitle
+           text: "Time Setting"
+           font.pixelSize: 20
+           anchors.centerIn: parent
+       }
+   }
+
    ColumnLayout {
        anchors.fill: parent
        Layout.alignment: Qt.AlignHCenter

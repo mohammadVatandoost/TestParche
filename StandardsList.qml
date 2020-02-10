@@ -7,6 +7,22 @@ import QtQuick.Controls.Material 2.3
 
 Page {
     id: root
+    header: ToolBar {
+        ToolButton {
+            text: qsTr("Back")
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.verticalCenter: parent.verticalCenter
+            onClicked: root.StackView.view.pop()
+        }
+
+        Label {
+            id: pageTitle
+            text: "Standards List"
+            font.pixelSize: 20
+            anchors.centerIn: parent
+        }
+    }
 
     ColumnLayout {
         id: column
