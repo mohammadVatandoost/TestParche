@@ -4,5 +4,16 @@
         <file>Login.qml</file>
         <file>TimeSetting.qml</file>
         <file>Setting.qml</file>
+        <file>SplashScreen.qml</file>
+        <file>StandardRun.qml</file>
+        <file>images/logo.png</file>
+        <file>images/setting.png</file>
+        <file>images/standards.png</file>
+        <file>images/timeSetting.png</file>
+        <file>images/temp.png</file>
+        <file>images/humidity.png</file>
+        <file>images/rain.png</file>
+        <file>images/sun.png</file>
+        <file>images/rotate.png</file>
     </qresource>
 </RCC>

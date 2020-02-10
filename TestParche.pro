@@ -1,5 +1,8 @@
 QT += quick
 QT += serialport
+QT += qml
+QT += quickcontrols2
+QT += opengl
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -33,4 +36,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     serialport.h \
-    backend.h
+    backend.h \
+    general.h \
+    standard.h
+
+DISTFILES +=
