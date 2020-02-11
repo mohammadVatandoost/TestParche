@@ -127,9 +127,9 @@ Page {
                 }
                 Switch {
                   Layout.alignment: Qt.AlignHCenter
-                  checked: stTurnMode
+                  checked: root.stTurnMode
                   onClicked: {
-                      stTurnMode = checked;
+                      root.stTurnMode = checked;
                   }
                 }
             }
@@ -144,10 +144,9 @@ Page {
                 }
                 Switch {
                   Layout.alignment: Qt.AlignHCenter
-                  checked: true
+                  checked: root.stWeathering
                   onClicked: {
-                      console.log("switch changed");
-                      console.log(checked);
+                      root.stWeathering = checked;
                   }
                 }
             }
@@ -166,6 +165,7 @@ Page {
                 }
                 NumberInput {
                     id: rainOnTime
+                    value: root.stRainOn
                 }
             }
 
@@ -179,6 +179,7 @@ Page {
                 }
                 NumberInput {
                     id: rainOffTime
+                    value: root.stRainOff
                 }
             }
         }
@@ -203,7 +204,9 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   StandardModel.makeNewStandard(standardName.text, tempNum.value, humidityNum.value, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
+                   StandardModel.makeNewStandard(root.stName, tempNum.value, humidityNum.value, root.stTurnMode, root.stWeathering,
+                                                 rainOnTime.value, rainOffTime.value);
+                    root.StackView.view.pop();
                 }
             }
         }

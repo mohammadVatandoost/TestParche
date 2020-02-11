@@ -5,8 +5,9 @@
 #include <QVector>
 #include "standard.h"
 
-class StandardsList
+class StandardsList: public QObject
 {
+     Q_OBJECT
 public:
     StandardsList();
     QVector<Standard> standardItems;

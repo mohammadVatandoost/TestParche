@@ -6,6 +6,10 @@ StandardModel::StandardModel(QObject *parent)
     , mList(nullptr)
 {
    mList = new StandardsList();
+   Standard st;
+   addElement(st);
+   st.standardName = "sadfsadfasdf";
+   addElement(st);
 }
 
 int StandardModel::rowCount(const QModelIndex &parent) const
@@ -15,6 +19,35 @@ int StandardModel::rowCount(const QModelIndex &parent) const
         return 0;
 
     return mList->items().size();
+}
+
+QVariant StandardModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid())
+        return QVariant();
+
+
+    const Standard item = mList->items().at(index.row());
+    switch (role) {
+     case standardName:
+        return QVariant( QString::fromStdString(item.standardName));
+     case standardId:
+        return QVariant(item.standardId);
+    case humidity:
+       return QVariant( item.humidity);
+    case rainOff:
+       return QVariant(item.rainOff);
+    case rainOn:
+       return QVariant(item.rainOn);
+    case temperature:
+       return QVariant(item.temperature);
+    case weathering:
+       return QVariant(item.weathering);
+    case turningMode:
+       return QVariant(item.turningMode);
+    }
+
+    return QVariant();
 }
 
 bool StandardModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -85,6 +118,14 @@ QHash<int, QByteArray> StandardModel::roleNames() const
     names[weathering] = "weathering" ;
     names[humidity] = "humidity" ;
     return names;
+}
+
+Qt::ItemFlags StandardModel::flags(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+
+    return Qt::ItemIsEditable;
 }
 
 StandardsList *StandardModel::list() const

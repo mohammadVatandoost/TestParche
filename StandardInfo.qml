@@ -21,22 +21,28 @@ Pane {
     Material.elevation: 5
     Layout.alignment: Qt.AlignHCenter
     Layout.topMargin: 0
+    anchors.horizontalCenter: parent.horizontalCenter
 
  RowLayout {
     width: parent.width
     spacing: 10
-    Text {
-        id: name
-        text: qsTr(standard.idNum+"- "+standard.name)
-        font.pointSize: 20
-        font.bold: true
+
+    RowLayout {
+        width: 400
+        Text {
+            text: qsTr(standard.idNum+"- "+standard.name)
+            font.pointSize: 20
+            font.bold: true
+        }
     }
+
     Image {
         width: 48
         height: 48
         sourceSize.height: 36
         sourceSize.width: 36
         source: "images/edit-64.png"
+        Layout.alignment: Qt.AlignRight
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -50,6 +56,7 @@ Pane {
         sourceSize.height: 36
         sourceSize.width: 36
         source: "images/delete-64.png"
+        Layout.alignment: Qt.AlignRight
         MouseArea {
             anchors.fill: parent
             onClicked: {

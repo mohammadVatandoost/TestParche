@@ -42,13 +42,14 @@ Page {
             Layout.fillHeight: true
             Layout.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignHCenter
             clip: true
             id: listView
             spacing: 10
 
            model: StandardModel
            delegate: StandardInfo {
-                idNum: model.standardNum
+                idNum: model.index+1
                 name: model.standardName
             }
          }

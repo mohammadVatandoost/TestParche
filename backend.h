@@ -13,6 +13,7 @@ class BackEnd : public SerialPort
 public:
     explicit BackEnd();
     QTimer *timer;
+    StandardModel *sModel;
     void setStandardModel(StandardModel *standardModel);
 signals:
 

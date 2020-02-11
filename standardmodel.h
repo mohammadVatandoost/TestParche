@@ -14,7 +14,7 @@ public:
     explicit StandardModel(QObject *parent = nullptr);
 //    virtual ~BrooksChannelModel() {}
     enum {
-        standardId, standardName, temperature, turningMode, weathering, rainOn, rainOff
+        standardId, standardName, temperature, turningMode, weathering, rainOn, rainOff, humidity
     };
 
     // Basic functionality:
@@ -33,7 +33,7 @@ public:
     StandardsList *list() const;
     void setList(StandardsList *list);
     void addElement(Standard item);
-    Q_INVOKABLE void makeNewStandard(QString stName, double stTemp, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
+    Q_INVOKABLE void makeNewStandard(QString stName, double stTemp, int stHumidity, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
 private:
     StandardsList *mList;
 };
