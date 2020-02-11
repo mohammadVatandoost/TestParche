@@ -50,6 +50,7 @@ Pane {
             }
         }
     }
+
     Image {
         width: 48
         height: 48
