@@ -19,7 +19,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     serialport.cpp \
-    backend.cpp
+    backend.cpp \
+    standardslist.cpp \
+    standardmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,6 +40,8 @@ HEADERS += \
     serialport.h \
     backend.h \
     general.h \
-    standard.h
+    standard.h \
+    standardslist.h \
+    standardmodel.h
 
 DISTFILES +=

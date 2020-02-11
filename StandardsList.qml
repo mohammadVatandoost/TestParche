@@ -37,8 +37,21 @@ Page {
                  root.StackView.view.push("qrc:/NewStandard.qml");
             }
         }
-        StandardInfo {}
-        StandardInfo {}
+        ListView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.topMargin: 5
+            anchors.horizontalCenter: parent.horizontalCenter
+            clip: true
+            id: listView
+            spacing: 10
+
+           model: StandardModel
+           delegate: StandardInfo {
+                idNum: model.standardNum
+                name: model.standardName
+            }
+         }
     }
 
 }

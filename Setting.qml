@@ -25,13 +25,30 @@ Page {
    property bool cooler: false
    property bool spray: false
 
+   header: ToolBar {
+       ToolButton {
+           text: qsTr("Back")
+           anchors.left: parent.left
+           anchors.leftMargin: 10
+           anchors.verticalCenter: parent.verticalCenter
+           onClicked: root.StackView.view.pop()
+       }
+
+       Label {
+           id: pageTitle
+           text: "Setting"
+           font.pixelSize: 20
+           anchors.centerIn: parent
+       }
+   }
+
    ColumnLayout {
        anchors.fill: parent
        Layout.alignment: Qt.AlignHCenter
        RowLayout {
            width: parent.width*0.9
            Layout.alignment: Qt.AlignHCenter
-           spacing: 50
+           spacing: 80
 
            Grid {
               columns: 2
@@ -75,6 +92,7 @@ Page {
                       font.pointSize: 18
                   }
               }
+
               ColumnLayout {
                   Text {
                       text: qsTr(root.temp+"")
@@ -114,6 +132,18 @@ Page {
                   }
               }
            }
+           ToolSeparator {
+               implicitHeight: parent.height
+           }
+//           ColumnLayout {
+//               width: pa
+//               Rectangle {
+//                   width: 5
+//                   height: parent.height
+//                   color: "black"
+//               }
+////           }
+
            Grid {
               columns: 2
               spacing: 18
@@ -223,25 +253,7 @@ Page {
 
        }
 
-       RowLayout {
-           spacing: 50
-           width: parent.width*0.9
-           Layout.alignment: Qt.AlignHCenter
-           Button {
-               text: qsTr("Cancel")
-               highlighted: true
-               Material.background: Material.Red
-               onClicked: {
-               }
-           }
-           Button {
-               text: qsTr("Save")
-               highlighted: true
-               Material.background: Material.Green
-               onClicked: {
-               }
-           }
-       }
+
 
 //     RowLayout {
 //       width: parent.width*0.9

@@ -8,6 +8,11 @@ BackEnd::BackEnd()
     timer->start(1000);
 }
 
+void BackEnd::setStandardModel(StandardModel *standardModel)
+{
+    sModel = standardModel;
+}
+
 void BackEnd::recieveSerialPort()
 {
 

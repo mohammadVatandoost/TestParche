@@ -8,9 +8,45 @@ import QtQuick.Controls.Styles 1.4
 
 Page {
     id: root
+
+    property string titleText: "New Standard"
+    property string stName: ""
+    property int stTemp: 0;
+    property int stHumidity: 0;
+    property int stRainOn: 0
+    property int stRainOff: 0
+    property bool stWeathering: false
+    property bool stTurnMode: false
+
+    header: ToolBar {
+        ToolButton {
+            text: qsTr("Back")
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.verticalCenter: parent.verticalCenter
+            onClicked: root.StackView.view.pop()
+        }
+
+        Label {
+            id: pageTitle
+            text: qsTr(root.titleText)
+            font.pixelSize: 20
+            anchors.centerIn: parent
+        }
+//        ToolButton {
+//            text: qsTr("Next")
+//            anchors.left: parent.left
+//            anchors.leftMargin: 10
+//            anchors.verticalCenter: parent.verticalCenter
+//            onClicked: root.StackView.view.pop()
+//        }
+    }
+
+
     ColumnLayout {
         anchors.fill: parent
         Layout.alignment: Qt.AlignTop
+
         // StandardName
         Label {
             Layout.alignment: Qt.AlignHCenter
@@ -33,7 +69,9 @@ Page {
                 y: 7
                 Layout.alignment: Qt.AlignHCenter
                 font.pointSize: 22
+                text: root.stName
                 property string placeholderText: "Standard name"
+                onTextChanged: {root.stName = text;}
                 Text {
                     Layout.alignment: Qt.AlignHCenter
                     text: standardName.placeholderText
@@ -57,6 +95,7 @@ Page {
                 }
                 NumberInput {
                     id: tempNum
+                    value: root.stTemp
                 }
             }
 
@@ -70,6 +109,7 @@ Page {
                 }
                 NumberInput {
                     id: humidityNum
+                    value: root.stHumidity
                 }
             }
         }
@@ -87,10 +127,9 @@ Page {
                 }
                 Switch {
                   Layout.alignment: Qt.AlignHCenter
-                  checked: true
+                  checked: stTurnMode
                   onClicked: {
-                      console.log("switch changed");
-                      console.log(checked);
+                      stTurnMode = checked;
                   }
                 }
             }
@@ -144,6 +183,59 @@ Page {
             }
         }
 
+
+
+        Rectangle {
+            width: 160
+            height: 50
+            radius: 25
+            Layout.alignment: Qt.AlignHCenter
+            color: "#4CAF50"
+
+            Text {
+                x: 25
+                y: 7
+                text: qsTr("Register")
+                font.pointSize: 22
+                color: "white"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                   StandardModel.makeNewStandard(standardName.text, tempNum.value, humidityNum.value, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
+                }
+            }
+        }
+
+//        Rectangle {
+//            width: 160
+//            height: 50
+//            radius: 25
+//            Layout.alignment: Qt.AlignHCenter
+//            color: "red"
+
+//            Text {
+//                x: 35
+//                y: 7
+//                text: qsTr("Cancel")
+//                font.pointSize: 22
+//                color: "white"
+//            }
+
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: {
+//                   root.StackView.view.pop();
+//                }
+//            }
+//        }
+
+
+    }
+}
+
+
 //        Rectangle {
 //            width: 50;
 //            height: 160
@@ -177,53 +269,3 @@ Page {
 //                }
 //            }
 //        }
-
-        Rectangle {
-            width: 160
-            height: 50
-            radius: 25
-            Layout.alignment: Qt.AlignHCenter
-            color: "#4CAF50"
-
-            Text {
-                x: 25
-                y: 7
-                text: qsTr("Register")
-                font.pointSize: 22
-                color: "white"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                   console.info("felan")
-                }
-            }
-        }
-
-        Rectangle {
-            width: 160
-            height: 50
-            radius: 25
-            Layout.alignment: Qt.AlignHCenter
-            color: "red"
-
-            Text {
-                x: 35
-                y: 7
-                text: qsTr("Cancel")
-                font.pointSize: 22
-                color: "white"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                   console.info("felan")
-                }
-            }
-        }
-
-
-    }
-}

@@ -9,13 +9,13 @@ Window {
     id: window
     visible: true
     width: 768
-    height: 640
+    height: 680
 //    title: qsTr("Hello World")
     StackView {
         id: stackView
         anchors.fill: parent
-//        initialItem: SplashScreen {}
-        initialItem: StandardsList {}
+        initialItem: SplashScreen {}
+//        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
 //        initialItem: Setting {}
 //        initialItem: TimeSetting {}

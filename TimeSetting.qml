@@ -52,8 +52,8 @@ Page {
            Grid {
               width: parent.width*0.9
               Layout.alignment: Qt.AlignHCenter
-              columns: 2
-              spacing: 30
+              columns: 3
+              spacing: 20
 
               ColumnLayout {
                   Label {
@@ -85,7 +85,9 @@ Page {
                      }
                   }
               }
-
+              ToolSeparator {
+                  implicitHeight: parent.height
+              }
               ColumnLayout {
                   RowLayout {
                       Label {
@@ -194,25 +196,29 @@ Page {
            }
 //       }
 
-       RowLayout {
-           spacing: 50
-           width: parent.width*0.9
-           Layout.alignment: Qt.AlignHCenter
-           Button {
-               text: qsTr("Cancel")
-               highlighted: true
-               Material.background: Material.Red
-               onClicked: {
+           Rectangle {
+               width: 160
+               height: 50
+               radius: 25
+               Layout.alignment: Qt.AlignHCenter
+               color: "#4CAF50"
+
+               Text {
+                   Layout.alignment: Qt.AlignHCenter
+                   anchors.horizontalCenter: parent.horizontalCenter
+                   text: qsTr("Save")
+                   font.pointSize: 22
+                   color: "white"
+                   y: 8
+               }
+
+               MouseArea {
+                   anchors.fill: parent
+                   onClicked: {
+                      console.info("felan")
+                   }
                }
            }
-           Button {
-               text: qsTr("Save")
-               highlighted: true
-               Material.background: Material.Green
-               onClicked: {
-               }
-           }
-       }
 
 
    }

@@ -16,13 +16,11 @@ Pane {
     property int rainOnTime: 42
     property int rainOffTime: 54
 
-    implicitHeight: 100
+    implicitHeight: 60
     implicitWidth: parent.width*0.9
     Material.elevation: 5
     Layout.alignment: Qt.AlignHCenter
     Layout.topMargin: 0
-ColumnLayout {
-    anchors.fill: parent
 
  RowLayout {
     width: parent.width
@@ -33,76 +31,88 @@ ColumnLayout {
         font.pointSize: 20
         font.bold: true
     }
-    // temperature
-    RowLayout {
-        Image {
-            width: 48
-            height: 48
-            sourceSize.height: 36
-            sourceSize.width: 36
-            source: "images/temp.png"
+    Image {
+        width: 48
+        height: 48
+        sourceSize.height: 36
+        sourceSize.width: 36
+        source: "images/edit-64.png"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+               root.StackView.view.push("qrc:/NewStandard.qml", {"titleText": "Edit Standard "+standard.idNum});
+            }
         }
-        Text {
-            id: tempurature
-            text: qsTr(standard.temp+" ")
-            font.pointSize: 18
-        }
-        Image {
-            width: 48
-            height: 48
-            sourceSize.height: 24
-            sourceSize.width: 24
-            source: "images/celsius.png"
+    }
+    Image {
+        width: 48
+        height: 48
+        sourceSize.height: 36
+        sourceSize.width: 36
+        source: "images/delete-64.png"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+
+            }
         }
     }
 
-    // humidity
-    RowLayout {
-        Image {
-            width: 48
-            height: 48
-            sourceSize.height: 36
-            sourceSize.width: 36
-            source: "images/humidity.png"
-        }
-        Text {
-            text: qsTr(standard.humidity+" %")
-            font.pointSize: 18
-        }
-    }
-
-
-    Text {
-        text: standard.mode ? qsTr("On") : qsTr("Off")
-    }
-    Text {
-//                id: name
-        text: standard.raining ? qsTr("raining") : qsTr("not raining")
-    }
-    Text {
-//                id: name
-        text: qsTr(standard.rainOnTime+" min")
-    }
-    Text {
-//                id: name
-        text: qsTr(standard.rainOffTime+" min")
-    }
- }
- RowLayout {
-     Image {
-         width: 48
-         height: 48
-         sourceSize.height: 24
-         sourceSize.width: 24
-         source: "images/edit-64.png"
-     }
-     Image {
-         width: 48
-         height: 48
-         sourceSize.height: 24
-         sourceSize.width: 24
-         source: "images/delete-64.png"
-     }
  }
 }
-}
+
+
+//// temperature
+//RowLayout {
+//    Image {
+//        width: 48
+//        height: 48
+//        sourceSize.height: 36
+//        sourceSize.width: 36
+//        source: "images/temp.png"
+//    }
+//    Text {
+//        id: tempurature
+//        text: qsTr(standard.temp+" ")
+//        font.pointSize: 18
+//    }
+//    Image {
+//        width: 48
+//        height: 48
+//        sourceSize.height: 24
+//        sourceSize.width: 24
+//        source: "images/celsius.png"
+//    }
+//}
+
+//// humidity
+//RowLayout {
+//    Image {
+//        width: 48
+//        height: 48
+//        sourceSize.height: 36
+//        sourceSize.width: 36
+//        source: "images/humidity.png"
+//    }
+//    Text {
+//        text: qsTr(standard.humidity+" %")
+//        font.pointSize: 18
+//    }
+//}
+
+
+//Text {
+//    text: standard.mode ? qsTr("On") : qsTr("Off")
+//}
+//Text {
+////                id: name
+//    text: standard.raining ? qsTr("raining") : qsTr("not raining")
+//}
+//Text {
+////                id: name
+//    text: qsTr(standard.rainOnTime+" min")
+//}
+//Text {
+////                id: name
+//    text: qsTr(standard.rainOffTime+" min")
+//}

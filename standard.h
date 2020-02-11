@@ -12,7 +12,8 @@ struct Standard {
     bool turningMode = false;
     bool weathering = false;
     int rainOn = 0;
-    int rainOfff = 0;
+    int rainOff = 0;
+    int humidity = 0;
 };
 
 #endif // STANDARD_H

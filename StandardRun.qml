@@ -9,6 +9,11 @@ Page {
     id: root
     property int programeState: 1
     property int standardId: 1
+    property string rainTime: "03:04:05"
+    property string sunnyTime: "03:04:05"
+    property string totalTime: "03:04:05"
+    property double temperature: 27.3
+    property double humidity: 41
 
     ColumnLayout {
         id: column
@@ -20,55 +25,76 @@ Page {
             spacing: 60
             Layout.topMargin: 10
             Layout.alignment: Qt.AlignHCenter
-            Image {
+            Pane {
                 width: 100
                 height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/job.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       root.StackView.view.push("qrc:/StandardsList.qml");
+                Material.elevation: 6
+                Image {
+                    width: 100
+                    height: 100
+                    sourceSize.height: 100
+                    sourceSize.width: 100
+                    source: "images/job.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           root.StackView.view.push("qrc:/StandardsList.qml");
+                        }
                     }
                 }
             }
-            Image {
+            Pane {
                 width: 100
                 height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/settings.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       root.StackView.view.push("qrc:/Login.qml");
+                Material.elevation: 6
+                Image {
+                    width: 100
+                    height: 100
+                    sourceSize.height: 100
+                    sourceSize.width: 100
+                    source: "images/settings.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           root.StackView.view.push("qrc:/Login.qml");
+                        }
                     }
                 }
             }
-            Image {
+            Pane {
                 width: 100
                 height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/sand-watch-96.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       root.StackView.view.push("qrc:/TimeSetting.qml");
+                Material.elevation: 6
+                Image {
+                    width: 100
+                    height: 100
+                    sourceSize.height: 100
+                    sourceSize.width: 100
+                    source: "images/sand-watch-96.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           root.StackView.view.push("qrc:/TimeSetting.qml");
+                        }
                     }
                 }
             }
-            Image {
+
+            Pane {
                 width: 100
                 height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/rotate.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       console.info("image clicked!")
+                Material.elevation: 6
+                Image {
+                    width: 100
+                    height: 100
+                    sourceSize.height: 100
+                    sourceSize.width: 100
+                    source: "images/rotate.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           console.info("image clicked!")
+                        }
                     }
                 }
             }
@@ -123,7 +149,7 @@ Page {
                 }
             }
             Label {
-                text: "27"
+                text: qsTr(root.temperature+"")
                 font.pointSize: 20
                 font.bold: true
             }
@@ -154,7 +180,7 @@ Page {
                 }
             }
             Label {
-                text: "26 %"
+                text: qsTr(root.humidity+" %")
                 font.pointSize: 20
                 font.bold: true
             }
@@ -182,14 +208,14 @@ Page {
                 padding: 2
 
                 background: Rectangle {
-                    implicitWidth: 300
+                    implicitWidth: 350
                     implicitHeight: 15
                     color: "#e6e6e6"
                     radius: 3
                 }
 
                 contentItem: Item {
-                    implicitWidth: 300
+                    implicitWidth: 350
                     implicitHeight: 4
 
                     Rectangle {
@@ -201,7 +227,7 @@ Page {
                 }
             }
             Label {
-                text: "05:06:36"
+                text: qsTr(root.rainTime)
                 font.pointSize: 20
                 font.bold: true
             }
@@ -229,14 +255,14 @@ Page {
                 padding: 2
 
                 background: Rectangle {
-                    implicitWidth: 300
+                    implicitWidth: 350
                     implicitHeight: 15
                     color: "#e6e6e6"
                     radius: 3
                 }
 
                 contentItem: Item {
-                    implicitWidth: 300
+                    implicitWidth: 350
                     implicitHeight: 4
 
                     Rectangle {
@@ -248,11 +274,12 @@ Page {
                 }
             }
             Label {
-                text: "05:06:36"
+                text: qsTr(root.sunnyTime)
                 font.pointSize: 20
                 font.bold: true
             }
         }
+
        // control btn
         RowLayout {
             width: parent.width
@@ -283,7 +310,7 @@ Page {
                 }
             }
             Label {
-                text: "05:06:36"
+                text: qsTr(root.totalTime)
                 font.pointSize: 20
                 font.bold: true
             }
@@ -292,11 +319,12 @@ Page {
                 height: 100
                 sourceSize.height: 100
                 sourceSize.width: 100
+                visible: (root.programeState === 1 || root.programeState === 3) ? true : false
                 source: "images/start.png"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       console.info("image clicked!")
+                       root.programeState = 2;
                     }
                 }
             }
@@ -306,10 +334,11 @@ Page {
                 sourceSize.height: 100
                 sourceSize.width: 100
                 source: "images/pause-button.png"
+                visible: (root.programeState === 2) ? true : false
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       console.info("image clicked!")
+                       root.programeState = 3;
                     }
                 }
             }
@@ -319,10 +348,11 @@ Page {
                 sourceSize.height: 100
                 sourceSize.width: 100
                 source: "images/stop.png"
+                visible: (root.programeState === 2 || root.programeState === 3) ? true : false
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       console.info("image clicked!")
+                       root.programeState = 1;
                     }
                 }
             }
