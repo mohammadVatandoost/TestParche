@@ -11,8 +11,8 @@ Pane {
     property string name: "standard name"
     property double temp: 27
     property double humidity: 27
-    property bool mode: false
-    property bool raining: false
+    property bool turnMode: false
+    property bool weathering: false
     property int rainOnTime: 42
     property int rainOffTime: 54
 
@@ -27,8 +27,9 @@ Pane {
     width: parent.width
     spacing: 10
 
-    RowLayout {
+    Item {
         width: 400
+        height: 60
         Text {
             text: qsTr(standard.idNum+"- "+standard.name)
             font.pointSize: 20
@@ -46,7 +47,9 @@ Pane {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-               root.StackView.view.push("qrc:/NewStandard.qml", {"titleText": "Edit Standard "+standard.idNum});
+               root.StackView.view.push("qrc:/NewStandard.qml", {"titleText": "Edit Standard "+standard.idNum, "stName": standard.name,
+                                        "stTemp": standard.temp, "stHumidity": standard.humidity, "stRainOn": standard.rainOnTime,
+                                        "stRainOff": standard.rainOffTime, "stWeathering": standard.weathering, "stTurnMode": standard.turnMode});
             }
         }
     }

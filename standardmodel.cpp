@@ -8,7 +8,8 @@ StandardModel::StandardModel(QObject *parent)
    mList = new StandardsList();
    Standard st;
    addElement(st);
-   st.standardName = "sadfsadfasdf";
+   st.standardName = "sadfsadfasdf"; st.humidity = 42; st.turningMode = true; st.weathering = true; st.rainOff = 34;
+   st.rainOn = 42; st.temperature = 27;
    addElement(st);
 }
 

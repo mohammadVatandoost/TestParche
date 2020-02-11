@@ -14,8 +14,8 @@ Window {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: SplashScreen {}
-//        initialItem: StandardsList {}
+//        initialItem: SplashScreen {}
+        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
 //        initialItem: Setting {}
 //        initialItem: TimeSetting {}

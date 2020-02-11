@@ -51,6 +51,12 @@ Page {
            delegate: StandardInfo {
                 idNum: model.index+1
                 name: model.standardName
+                temp: model.temperature
+                humidity: model.humidity
+                rainOffTime: model.rainOff
+                rainOnTime: model.rainOn
+                weathering: model.weathering
+                turnMode: model.turningMode
             }
          }
     }
