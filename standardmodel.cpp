@@ -6,11 +6,12 @@ StandardModel::StandardModel(QObject *parent)
     , mList(nullptr)
 {
    mList = new StandardsList();
-   Standard st;
-   addElement(st);
-   st.standardName = "sadfsadfasdf"; st.humidity = 42; st.turningMode = true; st.weathering = true; st.rainOff = 34;
-   st.rainOn = 42; st.temperature = 27;
-   addElement(st);
+   jsonStoring.getStandardsList(mList);
+//   Standard st;
+//   addElement(st);
+//   st.standardName = "sadfsadfasdf"; st.humidity = 42; st.turningMode = true; st.weathering = true; st.rainOff = 34;
+//   st.rainOn = 42; st.temperature = 27;
+//   addElement(st);
 }
 
 int StandardModel::rowCount(const QModelIndex &parent) const
@@ -98,7 +99,7 @@ bool StandardModel::setData(const QModelIndex &index, const QVariant &value, int
         break;
     }
 
-    if(mList->setChannelItem(index.row(), item)) {
+    if(mList->setStandardItem(index.row(), item)) {
 //        cout<< "emit data changed:"<< index.row()<< ", role:"<<role<<endl;
         emit dataChanged(index, index, QVector<int>() << role);
         return true;
@@ -150,6 +151,7 @@ void StandardModel::addElement(Standard item)
     beginResetModel();
     mList->standardItems.append(item);
     endResetModel();
+    jsonStoring.storeStandardsList(mList);
 }
 
 void StandardModel::makeNewStandard(QString stName, double stTemp, int stHumidity, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff)
@@ -163,4 +165,26 @@ void StandardModel::makeNewStandard(QString stName, double stTemp, int stHumidit
     st.rainOn = stRainOn;
     st.humidity = stHumidity;
     addElement(st);
+}
+
+void StandardModel::removeStandard(int index)
+{
+    beginResetModel();
+    mList->standardItems.remove(index-1);
+    endResetModel();
+    jsonStoring.storeStandardsList(mList);
+}
+
+void StandardModel::setStandard(int index, QString stName, double stTemp, int stHumidity, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff)
+{
+    beginResetModel();
+    mList->standardItems[index-1].standardName = stName.toStdString();
+    mList->standardItems[index-1].temperature = stTemp;
+    mList->standardItems[index-1].turningMode = stTurnMode;
+    mList->standardItems[index-1].weathering = stWeathering;
+    mList->standardItems[index-1].rainOff = stRainOff;
+    mList->standardItems[index-1].rainOn = stRainOn;
+    mList->standardItems[index-1].humidity = stHumidity;
+    endResetModel();
+    jsonStoring.storeStandardsList(mList);
 }

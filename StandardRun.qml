@@ -112,21 +112,11 @@ Page {
                 font.bold: true
             }
             ComboBox {
-                id: comboBoxGas
-                property var gasTypes: [ "NO", "CO", "SO2", "O2", "BTEX", "VOC" ]
-                function getIndex() {
-//                    var gasType = SensorsList.getGasTypeValue(root.sensorId)
-//                    for(var i=0; i< gasTypes.length; i++) {
-//                        if(gasTypes[i] === gasType) {
-//                            return i;
-//                        }
-//                    }
-                    return 0;
-                }
-
-                width: 200
-                model: gasTypes
-                currentIndex: getIndex()
+                id: comboBoxSt
+                implicitWidth: 250
+                model: StandardModel
+                textRole: 'standardName'
+                currentIndex: 0
 //                onActivated: SensorsList.setGasTypeValue(root.sensorId, gasTypes[currentIndex])
             }
 

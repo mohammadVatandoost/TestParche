@@ -49,7 +49,8 @@ Pane {
             onClicked: {
                root.StackView.view.push("qrc:/NewStandard.qml", {"titleText": "Edit Standard "+standard.idNum, "stName": standard.name,
                                         "stTemp": standard.temp, "stHumidity": standard.humidity, "stRainOn": standard.rainOnTime,
-                                        "stRainOff": standard.rainOffTime, "stWeathering": standard.weathering, "stTurnMode": standard.turnMode});
+                                        "stRainOff": standard.rainOffTime, "stWeathering": standard.weathering,
+                                            "stTurnMode": standard.turnMode, "standardId": standard.idNum, "isEdite": true});
             }
         }
     }
@@ -64,7 +65,7 @@ Pane {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-
+                StandardModel.removeStandard(standard.idNum);
             }
         }
     }

@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include "standard.h"
+#include "jsonstoring.h"
 
 class StandardsList;
 
@@ -34,6 +35,9 @@ public:
     void setList(StandardsList *list);
     void addElement(Standard item);
     Q_INVOKABLE void makeNewStandard(QString stName, double stTemp, int stHumidity, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
+    Q_INVOKABLE void removeStandard(int index);
+    Q_INVOKABLE void setStandard(int index, QString stName, double stTemp, int stHumidity, bool stTurnMode, bool stWeathering, int stRainOn, int stRainOff);
+    JsonStoring jsonStoring;
 private:
     StandardsList *mList;
 };

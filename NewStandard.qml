@@ -10,6 +10,8 @@ Page {
     id: root
 
     property string titleText: "New Standard"
+    property bool isEdite: false
+    property int standardId: 1
     property string stName: ""
     property int stTemp: 0;
     property int stHumidity: 0;
@@ -41,7 +43,6 @@ Page {
 //            onClicked: root.StackView.view.pop()
 //        }
     }
-
 
     ColumnLayout {
         anchors.fill: parent
@@ -194,9 +195,9 @@ Page {
             color: "#4CAF50"
 
             Text {
-                x: 25
+                x: isEdite ? 50 : 25
                 y: 7
-                text: qsTr("Register")
+                text: root.isEdite ? qsTr("Save") : qsTr("Register")
                 font.pointSize: 22
                 color: "white"
             }
@@ -204,8 +205,15 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   StandardModel.makeNewStandard(root.stName, tempNum.value, humidityNum.value, root.stTurnMode, root.stWeathering,
-                                                 rainOnTime.value, rainOffTime.value);
+                    if(isEdite) {
+                        StandardModel.setStandard(root.standardId, root.stName, tempNum.value, humidityNum.value,
+                                                  root.stTurnMode, root.stWeathering,
+                                                      rainOnTime.value, rainOffTime.value);
+
+                    } else {
+                        StandardModel.makeNewStandard(root.stName, tempNum.value, humidityNum.value, root.stTurnMode, root.stWeathering,
+                                                      rainOnTime.value, rainOffTime.value);
+                    }
                     root.StackView.view.pop();
                 }
             }

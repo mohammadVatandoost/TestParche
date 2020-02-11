@@ -10,12 +10,12 @@ QVector<Standard> StandardsList::items()
     return standardItems;
 }
 
-void StandardsList::addChannelItem(Standard item)
+void StandardsList::addStandardItem(Standard item)
 {
     standardItems.append(item);
 }
 
-bool StandardsList::setChannelItem(int index, Standard standard)
+bool StandardsList::setStandardItem(int index, Standard standard)
 {
     if(index <0 || index >= standardItems.size())
         return false;

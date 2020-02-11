@@ -12,8 +12,8 @@ public:
     StandardsList();
     QVector<Standard> standardItems;
     QVector<Standard> items();
-    void addChannelItem(Standard item);
-    bool setChannelItem(int index, Standard standard);
+    void addStandardItem(Standard item);
+    bool setStandardItem(int index, Standard standard);
 
 signals:
    void preItemAppended();

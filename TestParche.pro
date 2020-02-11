@@ -21,7 +21,8 @@ SOURCES += \
     serialport.cpp \
     backend.cpp \
     standardslist.cpp \
-    standardmodel.cpp
+    standardmodel.cpp \
+    jsonstoring.cpp
 
 RESOURCES += qml.qrc
 
@@ -42,7 +43,8 @@ HEADERS += \
     general.h \
     standard.h \
     standardslist.h \
-    standardmodel.h
+    standardmodel.h \
+    jsonstoring.h
 
 
 DISTFILES +=
