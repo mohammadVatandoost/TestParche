@@ -58,6 +58,7 @@ Page {
                 weathering: model.weathering
                 turnMode: model.turningMode
             }
+           ScrollBar.vertical: ScrollBar {}
          }
     }
 

@@ -14,6 +14,8 @@ Page {
     property string totalTime: "03:04:05"
     property double temperature: 27.3
     property double humidity: 41
+    property int menuSize: 64
+    property int iconSize: 72
 
     ColumnLayout {
         id: column
@@ -26,14 +28,14 @@ Page {
             Layout.topMargin: 10
             Layout.alignment: Qt.AlignHCenter
             Pane {
-                width: 100
-                height: 100
+                width: root.menuSize
+                height: root.menuSize
                 Material.elevation: 6
                 Image {
-                    width: 100
-                    height: 100
-                    sourceSize.height: 100
-                    sourceSize.width: 100
+                    width: root.menuSize
+                    height: root.menuSize
+                    sourceSize.height: root.menuSize
+                    sourceSize.width: root.menuSize
                     source: "images/job.png"
                     MouseArea {
                         anchors.fill: parent
@@ -44,14 +46,14 @@ Page {
                 }
             }
             Pane {
-                width: 100
-                height: 100
+                width: root.menuSize
+                height: root.menuSize
                 Material.elevation: 6
                 Image {
-                    width: 100
-                    height: 100
-                    sourceSize.height: 100
-                    sourceSize.width: 100
+                    width: root.menuSize
+                    height: root.menuSize
+                    sourceSize.height: root.menuSize
+                    sourceSize.width: root.menuSize
                     source: "images/settings.png"
                     MouseArea {
                         anchors.fill: parent
@@ -62,14 +64,14 @@ Page {
                 }
             }
             Pane {
-                width: 100
-                height: 100
+                width: root.menuSize
+                height: root.menuSize
                 Material.elevation: 6
                 Image {
-                    width: 100
-                    height: 100
-                    sourceSize.height: 100
-                    sourceSize.width: 100
+                    width: root.menuSize
+                    height: root.menuSize
+                    sourceSize.height: root.menuSize
+                    sourceSize.width: root.menuSize
                     source: "images/sand-watch-96.png"
                     MouseArea {
                         anchors.fill: parent
@@ -81,14 +83,14 @@ Page {
             }
 
             Pane {
-                width: 100
-                height: 100
+                width: root.menuSize
+                height: root.menuSize
                 Material.elevation: 6
                 Image {
-                    width: 100
-                    height: 100
-                    sourceSize.height: 100
-                    sourceSize.width: 100
+                    width: root.menuSize
+                    height: root.menuSize
+                    sourceSize.height: root.menuSize
+                    sourceSize.width: root.menuSize
                     source: "images/rotate.png"
                     MouseArea {
                         anchors.fill: parent
@@ -121,69 +123,74 @@ Page {
             }
 
         }
-        // tempurature
-        RowLayout {
-            width: parent.width
-            Layout.leftMargin: 20
-            Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/temp.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       console.info("image clicked!")
-                    }
-                }
-            }
-            Label {
-                text: qsTr(root.temperature+"")
-                font.pointSize: 20
-                font.bold: true
-            }
-            Image {
-                width: 48
-                height: 48
-                sourceSize.height: 24
-                sourceSize.width: 24
-                source: "images/celsius.png"
-            }
 
-        }
-        // humidity
         RowLayout {
             width: parent.width
-            Layout.leftMargin: 35
-            Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
-                source: "images/humidity.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                       console.info("image clicked!")
+            // tempurature
+            RowLayout {
+                width: parent.width*0.4
+                Layout.leftMargin: 20
+                Image {
+                    width: root.iconSize
+                    height: root.iconSize
+                    sourceSize.height: root.iconSize
+                    sourceSize.width: root.iconSize
+                    source: "images/temp.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           console.info("image clicked!")
+                        }
                     }
                 }
+                Label {
+                    text: qsTr(root.temperature+"")
+                    font.pointSize: 20
+                    font.bold: true
+                }
+                Image {
+                    width: 48
+                    height: 48
+                    sourceSize.height: 24
+                    sourceSize.width: 24
+                    source: "images/celsius.png"
+                }
+
             }
-            Label {
-                text: qsTr(root.humidity+" %")
-                font.pointSize: 20
-                font.bold: true
+            // humidity
+            RowLayout {
+                width: parent.width*0.4
+                Layout.leftMargin: parent.width*0.4
+                Image {
+                    width: root.iconSize
+                    height: root.iconSize
+                    sourceSize.height: root.iconSize
+                    sourceSize.width: root.iconSize
+                    source: "images/humidity.png"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                           console.info("image clicked!")
+                        }
+                    }
+                }
+                Label {
+                    text: qsTr(root.humidity+" %")
+                    font.pointSize: 20
+                    font.bold: true
+                }
             }
         }
+
         // rain
         RowLayout {
             width: parent.width
             Layout.leftMargin: 20
             Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
+                width: root.iconSize
+                height: root.iconSize
+                sourceSize.height: root.iconSize
+                sourceSize.width: root.iconSize
                 source: "images/rain.png"
                 MouseArea {
                     anchors.fill: parent
@@ -227,10 +234,10 @@ Page {
             width: parent.width
             Layout.leftMargin: 20
             Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
+                width: root.iconSize
+                height: root.iconSize
+                sourceSize.height: root.iconSize
+                sourceSize.width: root.iconSize
                 source: "images/sun.png"
                 MouseArea {
                     anchors.fill: parent
@@ -305,10 +312,10 @@ Page {
                 font.bold: true
             }
             Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
+                width: root.iconSize
+                height: root.iconSize
+                sourceSize.height: root.iconSize
+                sourceSize.width: root.iconSize
                 visible: (root.programeState === 1 || root.programeState === 3) ? true : false
                 source: "images/start.png"
                 MouseArea {
@@ -319,10 +326,10 @@ Page {
                 }
             }
             Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
+                width: root.iconSize
+                height: root.iconSize
+                sourceSize.height: root.iconSize
+                sourceSize.width: root.iconSize
                 source: "images/pause-button.png"
                 visible: (root.programeState === 2) ? true : false
                 MouseArea {
@@ -333,10 +340,10 @@ Page {
                 }
             }
             Image {
-                width: 100
-                height: 100
-                sourceSize.height: 100
-                sourceSize.width: 100
+                width: root.iconSize
+                height: root.iconSize
+                sourceSize.height: root.iconSize
+                sourceSize.width: root.iconSize
                 source: "images/stop.png"
                 visible: (root.programeState === 2 || root.programeState === 3) ? true : false
                 MouseArea {

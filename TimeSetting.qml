@@ -39,6 +39,11 @@ Page {
        }
    }
 
+//   ScrollView {
+//       width: parent.width
+//       height: window.height
+//       clip: true
+
    ColumnLayout {
        anchors.fill: parent
        Layout.alignment: Qt.AlignHCenter
@@ -63,33 +68,34 @@ Page {
                       Layout.topMargin: 20
                   }
 
-                  RowLayout {
-                      width: parent.width
-                      spacing: 20
-                      Layout.topMargin: 20
-                     ColumnLayout{
+//                  RowLayout {
+//                      width: parent.width
+//                      spacing: 20
+//                      Layout.topMargin: 20
+//                     ColumnLayout{
                          Label {
                              Layout.alignment: Qt.AlignHCenter
                              text: qsTr("Hour")
                              font.pointSize: 18
                          }
                          NumberInput {}
-                     }
-                     ColumnLayout{
+//                     }
+//                     ColumnLayout{
                          Label {
                              Layout.alignment: Qt.AlignHCenter
                              text: qsTr("Minute")
                              font.pointSize: 18
                          }
                          NumberInput {}
-                     }
-                  }
+//                     }
+//                  }
               }
               ToolSeparator {
                   implicitHeight: parent.height
               }
               ColumnLayout {
                   RowLayout {
+                      Layout.topMargin: 10
                       Label {
                           text: qsTr("Xenon Lamp Life Time :")
                           font.pointSize: 18
@@ -103,7 +109,7 @@ Page {
                   Label {
                       text: qsTr("Filters Life Time :")
                       font.pointSize: 22
-                      Layout.topMargin: 20
+                      Layout.topMargin: 10
                   }
 
                   RowLayout {
