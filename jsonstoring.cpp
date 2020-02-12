@@ -8,10 +8,10 @@ JsonStoring::JsonStoring()
 void JsonStoring::storeGeneralData(GeneralData generalData)
 {
      QJsonObject qJsonObject;
-     qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);qJsonObject.insert("analog1", generalData.analog1);
-     qJsonObject.insert("analog2", generalData.analog2);qJsonObject.insert("cooler", generalData.cooler);
-     qJsonObject.insert("humidity", generalData.humidity);qJsonObject.insert("input1", generalData.input1);
-     qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);
+//     qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);qJsonObject.insert("analog1", generalData.analog1);
+//     qJsonObject.insert("analog2", generalData.analog2);qJsonObject.insert("cooler", generalData.cooler);
+//     qJsonObject.insert("humidity", generalData.humidity);qJsonObject.insert("input1", generalData.input1);
+//     qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);qJsonObject.insert("STDBlackTemp", generalData.STDBlackTemp);
      QJsonArray array1,array2;
      for(int i=0; i<6;i++) {
          array1.push_front(generalData.filtersActivity[i]);
