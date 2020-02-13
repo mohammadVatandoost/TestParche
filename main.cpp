@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty(QStringLiteral("BackEnd"), &backEnd);
     engine.rootContext()->setContextProperty(QStringLiteral("StandardModel"), &standardModel);
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

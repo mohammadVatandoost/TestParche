@@ -37,6 +37,7 @@ Page {
                     sourceSize.height: root.menuSize
                     sourceSize.width: root.menuSize
                     source: "images/job.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -55,6 +56,7 @@ Page {
                     sourceSize.height: root.menuSize
                     sourceSize.width: root.menuSize
                     source: "images/settings.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -73,6 +75,7 @@ Page {
                     sourceSize.height: root.menuSize
                     sourceSize.width: root.menuSize
                     source: "images/sand-watch-96.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -92,6 +95,7 @@ Page {
                     sourceSize.height: root.menuSize
                     sourceSize.width: root.menuSize
                     source: "images/rotate.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -136,6 +140,7 @@ Page {
                     sourceSize.height: root.iconSize
                     sourceSize.width: root.iconSize
                     source: "images/temp.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -167,6 +172,7 @@ Page {
                     sourceSize.height: root.iconSize
                     sourceSize.width: root.iconSize
                     source: "images/humidity.png"
+                    asynchronous: true
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -192,6 +198,7 @@ Page {
                 sourceSize.height: root.iconSize
                 sourceSize.width: root.iconSize
                 source: "images/rain.png"
+                asynchronous: true
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -239,6 +246,7 @@ Page {
                 sourceSize.height: root.iconSize
                 sourceSize.width: root.iconSize
                 source: "images/sun.png"
+                asynchronous: true
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -318,6 +326,7 @@ Page {
                 sourceSize.width: root.iconSize
                 visible: (root.programeState === 1 || root.programeState === 3) ? true : false
                 source: "images/start.png"
+                asynchronous: true
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -332,6 +341,7 @@ Page {
                 sourceSize.width: root.iconSize
                 source: "images/pause-button.png"
                 visible: (root.programeState === 2) ? true : false
+                asynchronous: true
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
@@ -346,6 +356,7 @@ Page {
                 sourceSize.width: root.iconSize
                 source: "images/stop.png"
                 visible: (root.programeState === 2 || root.programeState === 3) ? true : false
+                asynchronous: true
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
