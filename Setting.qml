@@ -31,7 +31,7 @@ Page {
            anchors.left: parent.left
            anchors.leftMargin: 10
            anchors.verticalCenter: parent.verticalCenter
-           onClicked: root.StackView.view.pop()
+           onClicked: {BackEnd.setLoadingFlag(false);root.StackView.view.pop();}
        }
 
        Label {

@@ -1,4 +1,4 @@
-#ifndef BACKEND_H
+﻿#ifndef BACKEND_H
 #define BACKEND_H
 
 #include <QObject>
@@ -19,6 +19,10 @@ public:
     void setStandardModel(StandardModel *standardModel);
     JsonStoring jsonString;
     GeneralData generalData;
+
+    bool loadingFlag = false;
+    Q_INVOKABLE bool getLoadingFlag();
+    Q_INVOKABLE void setLoadingFlag(bool value);
 
     Q_INVOKABLE bool getFilterActivity(int index);
     Q_INVOKABLE void setFilterActivity(int index, bool value);

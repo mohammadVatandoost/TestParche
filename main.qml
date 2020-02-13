@@ -65,17 +65,25 @@ Window {
             }
         }
     }
+
     Timer {
-            interval: 3000; running: true; repeat: false
+            interval: 3000; running: true; repeat: true
             property int counter: 0
             onTriggered: {
                 stackView.pop();
-                window.stackViewVisibility = true;
-                if(counter%2===0) {
 
-                } else {
-
+                if(counter === 0 ) {
+                    stackView.push("qrc:/Setting.qml");
                 }
+                if(counter === 1 ) {
+                    stackView.push("qrc:/TimeSetting.qml");
+                }
+                if(counter === 2) {
+                    repeat = false;
+                    running= false;
+                    window.stackViewVisibility = true;
+                }
+
                 counter++;
 
             }

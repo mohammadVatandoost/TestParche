@@ -16,6 +16,8 @@ Page {
     property double humidity: 41
     property int menuSize: 64
     property int iconSize: 72
+    property bool loading: false
+
 
     ColumnLayout {
         id: column
@@ -28,23 +30,38 @@ Page {
             Layout.topMargin: 10
             Layout.alignment: Qt.AlignHCenter
             Pane {
+                id: container1
                 width: root.menuSize
                 height: root.menuSize
                 Material.elevation: 6
-                Image {
-                    width: root.menuSize
-                    height: root.menuSize
-                    sourceSize.height: root.menuSize
-                    sourceSize.width: root.menuSize
-                    source: "images/job.png"
-                    asynchronous: true
+
+                ColumnLayout {
+                    Image {
+                        width: root.menuSize
+                        height: root.menuSize
+                        sourceSize.height: root.menuSize
+                        sourceSize.width: root.menuSize
+                        source: "images/job.png"
+                        asynchronous: true
+                        visible: !root.loading
+
+                    }
+                    BusyIndicator {
+                        visible: root.loading
+                        running: root.loading
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                           root.StackView.view.push("qrc:/StandardsList.qml");
+                            if(!root.loading) {
+                                BackEnd.setLoadingFlag(true);
+                                root.StackView.view.push("qrc:/StandardsList.qml");
+                            }
                         }
                     }
                 }
+
+
             }
             Pane {
                 width: root.menuSize
@@ -371,4 +388,12 @@ Page {
 
         }
     }
+    Timer {
+            interval: 1000; running: true; repeat: true
+            property int counter: 0
+            onTriggered: {
+                root.loading = BackEnd.getLoadingFlag();
+            }
+    }
+
 }

@@ -14,6 +14,16 @@ void BackEnd::setStandardModel(StandardModel *standardModel)
     sModel = standardModel;
 }
 
+bool BackEnd::getLoadingFlag()
+{
+    return loadingFlag;
+}
+
+void BackEnd::setLoadingFlag(bool value)
+{
+    loadingFlag = value;
+}
+
 bool BackEnd::getFilterActivity(int index)
 {
     if(index>5) {
