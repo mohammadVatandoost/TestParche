@@ -195,8 +195,10 @@ Page {
             color: "#4CAF50"
 
             Text {
-                x: isEdite ? 50 : 25
+//                x: isEdite ? 50 : 25
                 y: 7
+                Layout.alignment: Qt.AlignHCenter
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: root.isEdite ? qsTr("Save") : qsTr("Register")
                 font.pointSize: 22
                 color: "white"

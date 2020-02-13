@@ -24,6 +24,10 @@ Page {
         }
     }
 
+//    Component {
+//        id: listComp
+//    }
+
     ColumnLayout {
         id: column
         anchors.fill: parent
@@ -47,6 +51,7 @@ Page {
             clip: true
             id: listView
             spacing: 10
+
 
            model: StandardModel
            delegate: StandardInfo {

@@ -14,6 +14,12 @@ Window {
     StackView {
         id: stackView
         anchors.fill: parent
+        popEnter:  Transition {}
+        popExit: Transition {}
+        pushEnter: Transition {}
+        pushExit: Transition {}
+        replaceEnter: Transition {}
+        replaceExit: Transition {}
         initialItem: SplashScreen {}
 //        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
