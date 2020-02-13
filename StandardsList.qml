@@ -37,6 +37,7 @@ Page {
                  root.StackView.view.push("qrc:/NewStandard.qml");
             }
         }
+
         ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true

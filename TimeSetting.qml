@@ -89,6 +89,30 @@ Page {
                          NumberInput {}
 //                     }
 //                  }
+                         Rectangle {
+                             width: 160
+                             height: 50
+                             radius: 25
+                             Layout.alignment: Qt.AlignHCenter
+                             color: "#4CAF50"
+                             Layout.topMargin: 50
+                             Text {
+                                 Layout.alignment: Qt.AlignHCenter
+                                 anchors.horizontalCenter: parent.horizontalCenter
+                                 text: qsTr("Save")
+                                 font.pointSize: 22
+                                 color: "white"
+                                 y: 8
+                             }
+
+                             MouseArea {
+                                 anchors.fill: parent
+                                 onClicked: {
+                                    console.info("felan")
+                                 }
+                             }
+                         }
+
               }
               ToolSeparator {
                   implicitHeight: parent.height
@@ -202,29 +226,7 @@ Page {
            }
 //       }
 
-           Rectangle {
-               width: 160
-               height: 50
-               radius: 25
-               Layout.alignment: Qt.AlignHCenter
-               color: "#4CAF50"
 
-               Text {
-                   Layout.alignment: Qt.AlignHCenter
-                   anchors.horizontalCenter: parent.horizontalCenter
-                   text: qsTr("Save")
-                   font.pointSize: 22
-                   color: "white"
-                   y: 8
-               }
-
-               MouseArea {
-                   anchors.fill: parent
-                   onClicked: {
-                      console.info("felan")
-                   }
-               }
-           }
 
 
    }
