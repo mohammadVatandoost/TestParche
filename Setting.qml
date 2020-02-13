@@ -31,7 +31,11 @@ Page {
            anchors.left: parent.left
            anchors.leftMargin: 10
            anchors.verticalCenter: parent.verticalCenter
-           onClicked: {BackEnd.setLoadingFlag(false);root.StackView.view.pop();}
+           onClicked: {
+              BackEnd.setLoadingFlag(false);
+//               console.log("setting back")
+               root.StackView.view.pop();
+           }
        }
 
        Label {
@@ -41,6 +45,8 @@ Page {
            anchors.centerIn: parent
        }
    }
+
+//   Component.onCompleted: {}
 
    ColumnLayout {
        anchors.fill: parent

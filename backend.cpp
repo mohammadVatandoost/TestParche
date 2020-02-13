@@ -21,6 +21,7 @@ bool BackEnd::getLoadingFlag()
 
 void BackEnd::setLoadingFlag(bool value)
 {
+    cout<< "setLoadingFlag:"<<value<<endl;
     loadingFlag = value;
 }
 

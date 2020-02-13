@@ -67,17 +67,28 @@ Page {
                 width: root.menuSize
                 height: root.menuSize
                 Material.elevation: 6
-                Image {
-                    width: root.menuSize
-                    height: root.menuSize
-                    sourceSize.height: root.menuSize
-                    sourceSize.width: root.menuSize
-                    source: "images/settings.png"
-                    asynchronous: true
+                ColumnLayout {
+                    Image {
+                        width: root.menuSize
+                        height: root.menuSize
+                        sourceSize.height: root.menuSize
+                        sourceSize.width: root.menuSize
+                        source: "images/settings.png"
+                        asynchronous: true
+                        visible: !root.loading
+
+                    }
+                    BusyIndicator {
+                        visible: root.loading
+                        running: root.loading
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                           root.StackView.view.push("qrc:/Login.qml");
+                            if(!root.loading) {
+                                BackEnd.setLoadingFlag(true);
+                                root.StackView.view.push("qrc:/Login.qml");
+                            }
                         }
                     }
                 }
@@ -86,17 +97,28 @@ Page {
                 width: root.menuSize
                 height: root.menuSize
                 Material.elevation: 6
-                Image {
-                    width: root.menuSize
-                    height: root.menuSize
-                    sourceSize.height: root.menuSize
-                    sourceSize.width: root.menuSize
-                    source: "images/sand-watch-96.png"
-                    asynchronous: true
+                ColumnLayout {
+                    Image {
+                        width: root.menuSize
+                        height: root.menuSize
+                        sourceSize.height: root.menuSize
+                        sourceSize.width: root.menuSize
+                        source: "images/sand-watch-96.png"
+                        asynchronous: true
+                        visible: !root.loading
+
+                    }
+                    BusyIndicator {
+                        visible: root.loading
+                        running: root.loading
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                           root.StackView.view.push("qrc:/TimeSetting.qml");
+                            if(!root.loading) {
+                                BackEnd.setLoadingFlag(true);
+                                root.StackView.view.push("qrc:/TimeSetting.qml");
+                            }
                         }
                     }
                 }
@@ -389,7 +411,7 @@ Page {
         }
     }
     Timer {
-            interval: 1000; running: true; repeat: true
+            interval: 500; running: true; repeat: true
             property int counter: 0
             onTriggered: {
                 root.loading = BackEnd.getLoadingFlag();
