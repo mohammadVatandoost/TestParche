@@ -10,9 +10,11 @@ Window {
     visible: true
     width: 768
     height: 680
+    property bool stackViewVisibility: false
 //    title: qsTr("Hello World")
     StackView {
         id: stackView
+        visible: window.stackViewVisibility
         anchors.fill: parent
         popEnter:  Transition {}
         popExit: Transition {}
@@ -20,11 +22,20 @@ Window {
         pushExit: Transition {}
         replaceEnter: Transition {}
         replaceExit: Transition {}
-        initialItem: SplashScreen {}
+//        initialItem: SplashScreen {}
+        initialItem: StandardRun {}
 //        initialItem: StandardsList {}
 //        initialItem: NewStandard {}
 //        initialItem: Setting {}
 //        initialItem: TimeSetting {}
+    }
+
+    SplashScreen {
+        visible: !window.stackViewVisibility
+        Component.onCompleted: {
+            stackView.push("qrc:/StandardsList.qml");
+//            stackView.view.push("qrc:/StandardsList.qml");
+        }
     }
 
     InputPanel {
@@ -54,4 +65,19 @@ Window {
             }
         }
     }
+    Timer {
+            interval: 3000; running: true; repeat: false
+            property int counter: 0
+            onTriggered: {
+                stackView.pop();
+                window.stackViewVisibility = true;
+                if(counter%2===0) {
+
+                } else {
+
+                }
+                counter++;
+
+            }
+     }
 }

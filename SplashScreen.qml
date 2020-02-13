@@ -3,7 +3,8 @@ import QtQuick.Controls 2.4
 
 Page {
     id: root
-
+    width: parent.width
+    height: parent.height
     Image {
       sourceSize.width: 400
       sourceSize.height: 400
@@ -14,7 +15,7 @@ Page {
 
     Timer {
             interval: 1000; running: true; repeat: false
-            onTriggered: root.StackView.view.push("qrc:/StandardRun.qml")
+//            onTriggered: root.StackView.view.push("qrc:/StandardRun.qml")
         }
 
 }
