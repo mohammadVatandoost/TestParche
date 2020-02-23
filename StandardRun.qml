@@ -18,6 +18,19 @@ Page {
     property int iconSize: 72
     property bool loading: false
 
+    function msToTime(duration) {
+          var milliseconds = parseInt((duration % 1000) / 100),
+            seconds = Math.floor((duration / 1000) % 60),
+            minutes = Math.floor((duration / (1000 * 60)) % 60),
+            hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+          hours = (hours < 10) ? "0" + hours : hours;
+          minutes = (minutes < 10) ? "0" + minutes : minutes;
+          seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+          return hours + ":" + minutes + ":" + seconds;
+    }
+
 
     ColumnLayout {
         id: column
@@ -370,6 +383,7 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                        root.programeState = 2;
+                       BackEnd.algStart(comboBoxSt.currentIndex);
                     }
                 }
             }
@@ -385,6 +399,7 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                        root.programeState = 3;
+                       BackEnd.algPause();
                     }
                 }
             }
@@ -400,6 +415,7 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                        root.programeState = 1;
+                       BackEnd.algStop();
                     }
                 }
             }
@@ -415,6 +431,14 @@ Page {
             property int counter: 0
             onTriggered: {
                 root.loading = BackEnd.getLoadingFlag();
+                root.temperature = BackEnd.getTemp().toFixed(2);
+                root.humidity = BackEnd.getHumidity().toFixed(2);
+                totalProgressBar.value = BackEnd.getTotalTimeP().toFixed(2);
+                lampProgressBar.value = BackEnd.getRainOffP().toFixed(2);
+                rainProgressBar.value = BackEnd.getRainOnP().toFixed(2);
+                root.sunnyTime = msToTime(BackEnd.getRainOffTime());
+                root.rainTime = msToTime(BackEnd.getRainOnTime());
+                root.totalTime = msToTime(BackEnd.getTotalTime());
             }
     }
 

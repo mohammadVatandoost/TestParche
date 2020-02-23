@@ -45,9 +45,9 @@ public:
     Q_INVOKABLE double getRainOnP();
     Q_INVOKABLE double getRainOffP();
     Q_INVOKABLE double getTotalTimeP();
-    Q_INVOKABLE QString getRainOnTime();
-    Q_INVOKABLE QString getRainOffTime();
-    Q_INVOKABLE QString getTotalTime();
+    Q_INVOKABLE double getRainOnTime();
+    Q_INVOKABLE double getRainOffTime();
+    Q_INVOKABLE double getTotalTime();
 
 
      void decodePacket(QString temp);

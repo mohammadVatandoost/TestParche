@@ -14,7 +14,7 @@ Window {
 //    title: qsTr("Hello World")
     StackView {
         id: stackView
-        visible: window.stackViewVisibility
+//        visible: window.stackViewVisibility
         anchors.fill: parent
         popEnter:  Transition {}
         popExit: Transition {}
@@ -30,13 +30,13 @@ Window {
 //        initialItem: TimeSetting {}
     }
 
-    SplashScreen {
-        visible: !window.stackViewVisibility
-        Component.onCompleted: {
-            stackView.push("qrc:/StandardsList.qml");
-//            stackView.view.push("qrc:/StandardsList.qml");
-        }
-    }
+//    SplashScreen {
+//        visible: !window.stackViewVisibility
+//        Component.onCompleted: {
+//            stackView.push("qrc:/StandardsList.qml");
+////            stackView.view.push("qrc:/StandardsList.qml");
+//        }
+//    }
 
     InputPanel {
         id: inputPanel
@@ -66,26 +66,26 @@ Window {
         }
     }
 
-    Timer {
-            interval: 3000; running: true; repeat: true
-            property int counter: 0
-            onTriggered: {
-                stackView.pop();
+//    Timer {
+//            interval: 3000; running: true; repeat: true
+//            property int counter: 0
+//            onTriggered: {
+//                stackView.pop();
 
-                if(counter === 0 ) {
-                    stackView.push("qrc:/Setting.qml");
-                }
-                if(counter === 1 ) {
-                    stackView.push("qrc:/TimeSetting.qml");
-                }
-                if(counter === 2) {
-                    repeat = false;
-                    running= false;
-                    window.stackViewVisibility = true;
-                }
+//                if(counter === 0 ) {
+//                    stackView.push("qrc:/Setting.qml");
+//                }
+//                if(counter === 1 ) {
+//                    stackView.push("qrc:/TimeSetting.qml");
+//                }
+//                if(counter === 2) {
+//                    repeat = false;
+//                    running= false;
+//                    window.stackViewVisibility = true;
+//                }
 
-                counter++;
+//                counter++;
 
-            }
-     }
+//            }
+//     }
 }

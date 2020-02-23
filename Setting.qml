@@ -188,62 +188,55 @@ Page {
                   spacing: 0
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
                     Layout.topMargin: -6
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(1, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
 //                    Layout.topMargin: -6
-                    checked: true
+                    checked: false
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(2, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
 //                    Layout.topMargin: -6
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(3, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
 //                    Layout.topMargin: -3
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(4, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(5, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(0, checked);
                     }
                   }
                   Switch {
                     Layout.alignment: Qt.AlignHCenter
-                    checked: true
+                    checked: false
                     onClicked: {
-                        console.log("switch changed");
-                        console.log(checked);
+                        BackEnd.setRelay(6, checked);
                     }
                   }
               }
@@ -256,7 +249,23 @@ Page {
            font.pointSize: 22
        }
        NumberInput {
+           id: ligtInteInput
+           value: root.lightIntensity
+       }
 
+       Timer {
+               interval: 1000; running: true; repeat: true
+               property int counter: 0
+               onTriggered: {
+                   root.temp = BackEnd.getTemp().toFixed(2);
+                   root.humidity = BackEnd.getHumidity().toFixed(2);
+                   root.stdBlackTemp = BackEnd.getSTDBlackTemp().toFixed(2);
+                   root.analog1 = BackEnd.getAnalog1();
+                   root.analog2 = BackEnd.getAnalog2();
+                   root.input1 = BackEnd.getInput1();
+                   root.input2 = BackEnd.getInput2();
+                   BackEnd.setLightIntensity(ligtInteInput.value);
+               }
        }
 
 
