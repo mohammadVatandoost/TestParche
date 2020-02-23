@@ -17,6 +17,7 @@ Page {
     property int menuSize: 64
     property int iconSize: 72
     property bool loading: false
+    property int algState: 0
 
     function msToTime(duration) {
           var milliseconds = parseInt((duration % 1000) / 100),
@@ -249,7 +250,7 @@ Page {
                 height: root.iconSize
                 sourceSize.height: root.iconSize
                 sourceSize.width: root.iconSize
-                source: "images/rain.png"
+                source: (algState === 0) ? "images/rain0.png" : ( (algState === 1) ? "images/rain1.png" : ((algState === 2) ? "images/rain2.png" : "images/rain3.png") )
                 asynchronous: true
                 MouseArea {
                     anchors.fill: parent
@@ -439,6 +440,17 @@ Page {
                 root.sunnyTime = msToTime(BackEnd.getRainOffTime());
                 root.rainTime = msToTime(BackEnd.getRainOnTime());
                 root.totalTime = msToTime(BackEnd.getTotalTime());
+                if(BackEnd.getAlgState() === 0) {
+                    root.programeState == 1;
+                    algState = 0;
+                } else if(BackEnd.getAlgState() === 1) {
+                    algState = 0;
+                } else {
+                    if(algState===4) {
+                       algState = 0;
+                    }
+                   algState = algState + 1;
+                }
             }
     }
 

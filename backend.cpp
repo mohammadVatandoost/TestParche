@@ -200,6 +200,11 @@ void BackEnd::algStop()
     timerAlg->start(100);
 }
 
+int BackEnd::getAlgState()
+{
+    return algState;
+}
+
 void BackEnd::algStart(int stIndex)
 {
     runingSt = sModel->list()->items().at(stIndex);

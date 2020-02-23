@@ -34,5 +34,7 @@
         <file>images/rain2.png</file>
         <file>images/rain1.png</file>
         <file>images/rain0.png</file>
+        <file>images/fan.gif</file>
+        <file>images/stopFan.jpg</file>
     </qresource>
 </RCC>

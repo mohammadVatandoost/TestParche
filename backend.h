@@ -45,9 +45,9 @@ public:
     Q_INVOKABLE double getRainOnP();
     Q_INVOKABLE double getRainOffP();
     Q_INVOKABLE double getTotalTimeP();
-    Q_INVOKABLE QString getRainOnTime();
-    Q_INVOKABLE QString getRainOffTime();
-    Q_INVOKABLE QString getTotalTime();
+    Q_INVOKABLE double getRainOnTime();
+    Q_INVOKABLE double getRainOffTime();
+    Q_INVOKABLE double getTotalTime();
 
 
      void decodePacket(QString temp);
@@ -56,6 +56,7 @@ public:
      Q_INVOKABLE void algStart(int stIndex);
      Q_INVOKABLE void algPause();
      Q_INVOKABLE void algStop();
+     Q_INVOKABLE int getAlgState();
      int counterAlgCommand = 0;
      int algState = Stoped;
      int algTimeCounter = 0;
